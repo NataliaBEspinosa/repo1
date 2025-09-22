@@ -1,4 +1,4 @@
-import { LoginElements } from "./pages/login/login.elements";
+import { LoginElements } from "./login.elements";
 
 export class LoginMethods{
     static insertUsername(username){
