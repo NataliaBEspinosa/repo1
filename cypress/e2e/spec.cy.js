@@ -1,5 +1,12 @@
+import { LoginMethods } from "./login.methods"
+
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    const usuario = 'username'
+    const contrasena = 'password'
+    cy.visit('https://demoblaze.com/')
+    cy.get('a[data-target="#logInModal"]').click()
+    LoginMethods.login(usuario, contrasena)
+    cy.get('a#nameofuser').should('contain.text', usuario)
   })
 })
