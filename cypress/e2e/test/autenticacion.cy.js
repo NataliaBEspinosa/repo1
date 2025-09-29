@@ -29,4 +29,29 @@ describe(CommonPageData.testSuites.autenticacion, ()=>{
 
 
     })
+
+    it('Inicio de sesión invalido', ()=>{
+        Logger.stepNumber(1)
+        Logger.step('Navegar a la página de inicio.')
+        CommonPageMehotds.navegateToDemoBlaze();
+
+        Logger.stepNumber(2)
+        Logger.step('Hacer clic en "Log in" en la barra de navegación.')
+        CommonPageMehotds.clickOnLogInOption();
+
+        Logger.stepNumber(3)
+        Logger.step('Ingresar un nombre de usuario y/0 contraseña inválidos.')
+        LoginMethods.insertUsername(LoginData.validCredentials.username)
+        LoginMethods.insertPassword('contrasenainvalida')
+
+
+        Logger.stepNumber(4)
+        Logger.step('Hacer clic en "Log in" para iniciar sesión.')
+        LoginMethods.clickOnLoginButton();
+        //Paso 5
+        Logger.subVerification('Verificar que se muestra un mensaje de error indicando que el inicio de sesión ha fallado.')
+        LoginMethods.verifyWrongPasswordMessage();
+
+
+    })
 })
