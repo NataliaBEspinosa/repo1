@@ -17,7 +17,7 @@ export class PlacerOrderElements{
                 return cy.get('input#month');
             },
             get year(){
-                cy.get('input#year');
+                return cy.get('input#year');
             },
         };
     

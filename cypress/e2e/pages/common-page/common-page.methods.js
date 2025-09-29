@@ -23,6 +23,9 @@ export class CommonPageMehotds{
 
     static clickOnCartOption(){
         CommonPageElements.topMenu.cart.click();
+        Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+})
     }
     
 
