@@ -3,6 +3,9 @@ import { CommonPageMehotds } from "../pages/common-page/common-page.methods";
 import { SingupMethods } from "../pages/singup/singup.methods";
 import { Logger } from "../util/logger";
 
+const user = CommonPageMehotds.generateRandomString();
+const password = CommonPageMehotds.generateRandomString(7);
+
 describe(CommonPageData.testSuites.registroYAutenticacion, ()=>{
     it('Registro de usuario válido', ()=>{
         Logger.stepNumber(1)
@@ -15,8 +18,8 @@ describe(CommonPageData.testSuites.registroYAutenticacion, ()=>{
 
         Logger.stepNumber(3)
         Logger.step('Completar todos los campos obligatorios con información válida.')
-        SingupMethods.insertUsername('Hooos5ogoola1235')
-        SingupMethods.insertPassword('16448s6486sddfgh')
+        SingupMethods.insertUsername(user)
+        SingupMethods.insertPassword(password)
 
         Logger.stepNumber(4)
         Logger.step('Hacer clic en "Sign up" para registrar el usuario.')
