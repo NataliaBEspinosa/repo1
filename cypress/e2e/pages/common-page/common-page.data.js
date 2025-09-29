@@ -3,4 +3,10 @@ export class CommonPageData{
         return 'https://demoblaze.com/cart.html';
     }
     
+    static get testSuites(){
+        return{
+            registroYAutenticacion: "Registro y Atrenticación",
+            catalogoYCompra: "Catálogo y Compras",
+        };
+    }
 }

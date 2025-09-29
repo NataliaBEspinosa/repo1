@@ -2,10 +2,10 @@ export class SingupElements{
     static get textboxes(){
         return{
             get username(){
-               return cy.get('input#loginusername');
+               return cy.get('input#sign-username')
             },
             get password(){
-                return cy.get('input#loginpassword');
+                return cy.get('input#sign-password')
             },
         };
     }
@@ -16,7 +16,7 @@ export class SingupElements{
                 return cy.get('div[id="logInModal"] button').eq(1);
             },
             get singup(){
-                return cy.contains('button', 'Log in');
+                return cy.contains('button', 'Sign up');
             },
         };
     }

@@ -1,3 +1,4 @@
+import { CommonPageMehotds } from "../common-page/common-page.methods";
 import { SingupElements } from "./singup.elements";
 
 export class SingupMethods{
@@ -10,13 +11,18 @@ export class SingupMethods{
     }
 
     static clickOnSingupButton(){
-        SingupElements.buttons.singup.click()
+        SingupElements.buttons.singup.click();
     }
 
     static singup(username, password){
         this.insertUsername(username);
         this.insertPassword(password);
         this.clickOnSingupButton();
+    }
+
+    static verfifySignUpSuccessfulMessageIsDisplay(){
+        CommonPageMehotds.verifyAlert('Sign up successful.');
+
     }
     
 }
