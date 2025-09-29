@@ -11,7 +11,7 @@ export class CommonPageElements{
                 return cy.get('a[data-target="#videoModal"]');
             },
             get cart(){
-                cy.contains('a', 'Cart');
+                return cy.contains('a', 'Cart');
             },
             get logIn(){
                 return cy.get('a[data-target="#logInModal"]');
