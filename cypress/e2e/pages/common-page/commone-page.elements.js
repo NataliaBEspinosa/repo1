@@ -19,10 +19,16 @@ export class CommonPageElements{
             get singUp(){
                 return cy.get('a[data-target="#signInModal"]');
             },
+            get logOut(){
+                return cy.contains('a', 'Log out');
+            },
         };
     }
     
     static get singedUser(){
         return cy.get('a#nameofuser');
     }
+
+
+
 }

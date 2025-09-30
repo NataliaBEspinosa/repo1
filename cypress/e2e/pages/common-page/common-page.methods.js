@@ -59,4 +59,13 @@ static verifySingedUser(username){
     CommonPageElements.singedUser.should('have.text', `Welcome ${username}`)
 }
 
+static logOut(){
+    cy.get('body').then($body=>{
+        if($body.find('a', 'Log out'). length>0){
+            CommonPageElements.topMenu.logOut.click();
+        }
+    })
+    
+}
+
 }

@@ -28,6 +28,12 @@ describe(CommonPageData.testSuites.autenticacion, ()=>{
         CommonPageMehotds.verifySingedUser(LoginData.validCredentials.username);
 
 
+        //Desloguear al usuario
+        Logger.postCondition('Log Out')
+        CommonPageMehotds.logOut();
+        cy.wait(10000)
+
+
     })
 
     it('Inicio de sesión invalido', ()=>{
