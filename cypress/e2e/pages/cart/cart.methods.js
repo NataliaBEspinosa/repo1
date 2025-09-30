@@ -1,3 +1,6 @@
+import { Logger } from "../../util/logger";
+import { CommonPageMehotds } from "../common-page/common-page.methods";
+import { LoginMethods } from "../login/login.methods";
 import { CartElements } from "./cart.elements";
 
 export class CartMehotds{
@@ -15,6 +18,33 @@ export class CartMehotds{
 
     static clickOnPlaceOrderButton(){
         CartElements.buttons.placeOrder.click();
+    }
+
+    static deleteProducts(){
+        cy.get('a[onclick*="deleteItem"]').each(link=>{
+            link.click()
+            cy.wait(1000)
+        })
+    }
+
+    static emptyCart(username, password){
+        Logger.subStep('Navegate to Demoblaze application')
+        CommonPageMehotds.navegateToDemoBlaze();
+        Logger.subStep('Log out')
+        CommonPageMehotds.logOut();
+        Logger.subStep('Click on Home option')
+        CommonPageMehotds.clickOnHomeOption();
+        Logger.subStep('Click on log in option')
+        CommonPageMehotds.clickOnLogInOption();
+        Logger.subStep(`Login with this credentials ${username}/${password}`)
+        LoginMethods.login(username, password);
+        Logger.subStep('Click on cart option')
+        CommonPageMehotds.clickOnCartOption();
+        Logger.subStep('Delete products from cart')
+        this.deleteProducts();
+
+        
+        
     }
 
 }

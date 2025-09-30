@@ -61,7 +61,7 @@ static verifySingedUser(username){
 
 static logOut(){
     cy.get('body').then($body=>{
-        if($body.find('a', 'Log out'). length>0){
+        if($body.find('#logout2[style="display: block;"]'). length>0){
             CommonPageElements.topMenu.logOut.click();
         }
     })
