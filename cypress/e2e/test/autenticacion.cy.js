@@ -31,7 +31,6 @@ describe(CommonPageData.testSuites.autenticacion, ()=>{
         //Desloguear al usuario
         Logger.postCondition('Log Out')
         CommonPageMehotds.logOut();
-        cy.wait(10000)
 
 
     })
