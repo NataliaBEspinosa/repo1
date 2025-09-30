@@ -12,7 +12,7 @@ export class ThankYouForYourPuchaseElements{
     static get icons(){
         return{
             get greenCheckMark(){
-                return cy.get('.sa-sucess');
+                return cy.get('div.sa-placeholder');
             },
         };
     }
