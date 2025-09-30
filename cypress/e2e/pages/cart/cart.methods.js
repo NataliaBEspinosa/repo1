@@ -20,12 +20,14 @@ export class CartMehotds{
         CartElements.buttons.placeOrder.click();
     }
 
-    static deleteProducts(){
-        cy.get('a[onclick*="deleteItem"]').each(link=>{
-            link.click()
-            cy.wait(1000)
-        })
-    }
+     static deleteProducts(){
+    cy.intercept('POST', 'https://api.demoblaze.com/deleteitem').as('deleteItem')
+    cy.get('a[onclick*="deleteItem"]').each(link=>{
+      link.click()
+      cy.wait('@deleteItem')
+    })
+  }
+
 
     static emptyCart(username, password){
         Logger.subStep('Navegate to Demoblaze application')
@@ -42,9 +44,6 @@ export class CartMehotds{
         CommonPageMehotds.clickOnCartOption();
         Logger.subStep('Delete products from cart')
         this.deleteProducts();
-
-        
-        
     }
 
 }
